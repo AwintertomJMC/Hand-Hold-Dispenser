@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "minecraft:blocks/diamond_block",
+        "front": "handholddispenser:items/dispenser_front_vertical",
+        "side": "handholddispenser:items/furnace_side"
+    }
+}

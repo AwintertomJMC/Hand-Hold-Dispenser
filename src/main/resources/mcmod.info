@@ -1,0 +1,16 @@
+[
+{
+  "modid": "handholddispenser",
+  "name": "Hand-hold Dispenser",
+  "description": "添加了手持型发射器，能够发射火球（火焰弹）、烟花火箭、喷溅型药水和滞留型药水。\r\nA mod that adds hand-hold dispenser which can fire out fireball(fire_charge),firework,splash potion and linger potion",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["wintertom"],
+  "credits": "The Forge and FML guys, Mojang for minecraft",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

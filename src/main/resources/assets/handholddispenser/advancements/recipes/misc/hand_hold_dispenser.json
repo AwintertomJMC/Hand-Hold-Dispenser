@@ -1,0 +1,59 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards":
+  {
+    "recipes":[
+      "handholddispenser:hand_hold_dispenser"
+    ]
+  },
+  "criteria": {
+    "has_diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:diamond"
+          }
+        ]
+      }
+    },
+    "has_gold_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:gold_ingot",
+            "data": 1
+          }
+        ]
+      }
+    },
+    "has_iron_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:iron_ingot"
+          }
+        ]
+      }
+    },
+    "has_dispenser":
+    {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "recipe": "minecraft:dispenser"
+      }
+    },
+    "has_hand_hold_dispenser_recipe":
+    {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "handholddispenser:hand_hold_dispenser"
+      }
+    }
+  },
+  "requirements": [
+    ["has_diamond","has_gold_ingot","has_iron_ingot","has_dispenser","has_hand_hold_dispenser_recipe"]
+  ]
+}
