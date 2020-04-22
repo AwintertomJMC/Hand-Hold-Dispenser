@@ -6,18 +6,24 @@ import com.wintertom.handholddispenser.common.util.ItemMathHelper;
 import com.wintertom.handholddispenser.init.EnchantmentRegister;
 import com.wintertom.handholddispenser.init.HandHoldDispenser;
 import net.minecraft.block.BlockDispenser;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityPotion;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -202,5 +208,25 @@ public class ItemHandHoldDispenser extends Item
             vec3ds[index] = ItemMathHelper.calculateWithYawAndPitch(-angle*(i+1),entityPlayer.rotationYaw,entityPlayer.rotationPitch, (float) playerLook.y);
         }
         return vec3ds;
+    }
+
+    @Override
+    public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving) {
+        if(state.getBlockHardness(worldIn,pos) != 0.0D)
+        {
+            stack.damageItem(2,entityLiving);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean isFull3D() {
+        return true;
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+        Item item = repair.getItem();
+        return item == Items.DIAMOND || item == Items.GOLD_INGOT || item == Items.IRON_INGOT || item == ItemBlock.getItemFromBlock(Blocks.DISPENSER);
     }
 }
